@@ -1,2 +1,4 @@
 bakingProjectV4.pdf
-
+!*.c
+!*.md
+bake

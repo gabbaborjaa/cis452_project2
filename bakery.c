@@ -136,7 +136,7 @@ void* baker_thread(void* arg){
         pthread_mutex_unlock(&print_lock);
     }
 
-    //Once a baker finishes all of the recipes
+    //once a baker finishes all of the recipes
     pthread_mutex_lock(&print_lock);
     printf("%sBaker %d has completed all recipes!%s\n", color, id, RESET);
     pthread_mutex_unlock(&print_lock);
@@ -202,7 +202,7 @@ int main() {
         pthread_create(&threads[i], NULL, baker_thread, (void*)(intptr_t)i);
     }
 
-    //loop through baker threads and wait for them to finish, ensures the main thread waits for all bakers to complete
+    //loops through baker threads
     for (int i = 0; i < n; i++) {
         pthread_join(threads[i], NULL);
     }
